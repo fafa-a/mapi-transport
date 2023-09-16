@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
@@ -16,6 +17,7 @@
     "pages:deploy": "pnpm run build && wrangler pages deploy .svelte-kit/cloudflare"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.15.0",
     "@playwright/test": "^1.28.1",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-cloudflare": "^2.3.3",

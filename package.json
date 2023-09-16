@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "husky install",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
@@ -27,6 +27,8 @@
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte": "^2.26.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
     "svelte": "^3.54.0",
@@ -36,6 +38,11 @@
     "vite": "^4.3.0",
     "vitest": "^0.25.3",
     "wrangler": "^3.8.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md,css,html,svelte}": [
+      "prettier --write"
+    ]
   },
   "type": "module"
 }

@@ -2,10 +2,13 @@
   import '../app.css'
   import { css } from 'styled-system/css'
   import IconMenuMobile from '$lib/components/IconMenuMobile.svelte'
+  import IconMenuMobileClose from '$lib/components/IconMenuMobileClose.svelte'
   import MediaQuery from 'svelte-media-queries'
   const title = 'mapi transport'
   let open = false
-  let matches
+  const toggleMobileMenu = () => {
+    open = !open
+  }
 </script>
 
 <header
@@ -51,13 +54,22 @@
   >
     {@const [mobile, tablet, desktop] = matches}
     {#if mobile}
-      <a
-        href="/mobileMenu"
-        on:click={() => (open = !open)}
-        class={css({ marginRight: '2.0rem', height: '100%' })}
-      >
-        <IconMenuMobile width="2.5rem" height="100%" color="white" />
-      </a>
+      {#if !open}
+        <a
+          href="/mobileMenu"
+          on:click={toggleMobileMenu}
+          class={css({ marginRight: '2.0rem', height: '100%' })}
+        >
+          <IconMenuMobile width="2.5rem" height="100%" color="white" />
+        </a>
+      {:else}
+        <a
+          href="/"
+          on:click={toggleMobileMenu}
+          class={css({ marginRight: '2.0rem', height: '100%' })}
+          ><IconMenuMobileClose width="2.5rem" height="100%" color="white" />
+        </a>
+      {/if}
     {/if}
     {#if tablet || desktop}
       <ul

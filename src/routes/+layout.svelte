@@ -4,7 +4,7 @@
   import IconMenuMobile from '$lib/components/IconMenuMobile.svelte'
   import IconMenuMobileClose from '$lib/components/IconMenuMobileClose.svelte'
   import MediaQuery from 'svelte-media-queries'
-  const title = 'mapi transport'
+  const societyName = 'mapi transport'
   let open = false
   const toggleMobileMenu = () => {
     open = !open
@@ -42,7 +42,7 @@
       }
     })}
   >
-    <a href="/">{title}</a>
+    <a href="/">{societyName}</a>
   </h1>
   <MediaQuery
     query={[
@@ -92,9 +92,4 @@
     {/if}
   </MediaQuery>
 </header>
-<slot
-  class={css({
-    marginTop: '3.5rem',
-    backgroundColor: 'red'
-  })}
-/>
+<slot />

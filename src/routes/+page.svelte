@@ -9,7 +9,7 @@
     height: '100vh',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundposition: 'center center',
+    backgroundPosition: 'center center',
     position: 'absolute',
     top: 0,
     left: 0,

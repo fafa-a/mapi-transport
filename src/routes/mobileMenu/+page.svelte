@@ -17,7 +17,7 @@
       filter: 'blur(5px)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundposition: 'center center'
+      backgroundPosition: 'center center'
     },
     width: '100vw',
     height: '100vh',

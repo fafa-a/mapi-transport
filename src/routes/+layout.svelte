@@ -1,9 +1,11 @@
-<script>
-  import '../app.css';
-  import { css } from 'styled-system/css';
-  import IconMenuMobile from '$lib/components/IconMenuMobile.svelte';
-  const title = 'mapi transport';
-  let open = false;
+<script lang="ts">
+  import '../app.css'
+  import { css } from 'styled-system/css'
+  import IconMenuMobile from '$lib/components/IconMenuMobile.svelte'
+  import MediaQuery from 'svelte-media-queries'
+  const title = 'mapi transport'
+  let open = false
+  let matches
 </script>
 
 <header
@@ -12,7 +14,9 @@
     height: '3.5rem',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'absolute',
+    zIndex: 1000
   })}
 >
   <h1
@@ -25,20 +29,60 @@
       paddingLeft: '1rem',
       paddingRight: '1rem',
       display: 'grid',
-      placeItems: 'center'
+      placeItems: 'center',
+
+      '@media (min-width: 768px)': {
+        marginLeft: '2.5rem'
+      },
+      '@media (min-width: 1280px)': {
+        marginLeft: '5.0rem'
+      }
     })}
   >
-    {title}
+    <a href="/">{title}</a>
   </h1>
-  <button
-    on:click={() => (open = !open)}
-    class={css({ marginRight: '2.0rem', height: '100%' })}
+  <MediaQuery
+    query={[
+      '(max-width: 768px)',
+      '(min-width: 768px) and (max-width: 1280px)',
+      '(min-width: 1280px)'
+    ]}
+    let:matches
   >
-    <IconMenuMobile width="2.5rem" height="100%" color="white" />
-  </button>
-  <!-- <ul> -->
-  <!--   <li><a href="/">Home</a></li> -->
-  <!--   <li><a href="/about">About</a></li> -->
-  <!-- </ul> -->
+    {@const [mobile, tablet, desktop] = matches}
+    {#if mobile}
+      <a
+        href="/mobileMenu"
+        on:click={() => (open = !open)}
+        class={css({ marginRight: '2.0rem', height: '100%' })}
+      >
+        <IconMenuMobile width="2.5rem" height="100%" color="white" />
+      </a>
+    {/if}
+    {#if tablet || desktop}
+      <ul
+        class={css({
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '16rem',
+          color: 'white',
+          marginRight: '2.5rem',
+
+          '@media (min-width: 1280px)': {
+            marginRight: '5.0rem'
+          }
+        })}
+      >
+        <li><a href="/services">Services</a></li>
+        <li><a href="/reservation">Réservation</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    {/if}
+  </MediaQuery>
 </header>
-<slot />
+<slot
+  class={css({
+    marginTop: '3.5rem',
+    backgroundColor: 'red'
+  })}
+/>

@@ -1,17 +1,29 @@
-<script>
-  import { css } from 'styled-system/css';
+<script lang="ts">
+  import { css } from 'styled-system/css'
 </script>
 
-<h1>Welcome to SvelteKit</h1>
 <div
   class={css({
-    fontSize: '2xl',
-    fontWeight: 'bold'
+    backgroundImage: "url('$lib/assets/images/arthur-chauvineau-mobile.webp')",
+    width: '100vw',
+    height: '100vh',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundposition: 'center center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: 0,
+
+    '@media (min-width: 768px)': {
+      backgroundImage: "url('$lib/assets/images/arthur-chauvineau-tablet.webp')"
+    },
+
+    '@media (min-width: 1280px)': {
+      backgroundImage:
+        "url('$lib/assets/images/arthur-chauvineau-desktop.webp')"
+    }
   })}
 >
-  Hello 🐼!
-  <p>
-    Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation and get started.
-    You can
-  </p>
+  Hello
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
   import '../app.css'
   import { css } from 'styled-system/css'
-  import IconMenuMobile from '$lib/components/IconMenuMobile.svelte'
-  import IconMenuMobileClose from '$lib/components/IconMenuMobileClose.svelte'
+  import IconMenuMobile from '$lib/components/icon/IconMenuMobile.svelte'
+  import IconMenuMobileClose from '$lib/components/icon/IconMenuMobileClose.svelte'
   import MediaQuery from 'svelte-media-queries'
   const societyName = 'mapi transport'
   let open = false

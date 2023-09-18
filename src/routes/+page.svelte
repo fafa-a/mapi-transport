@@ -1,5 +1,6 @@
 <script lang="ts">
   import { css } from 'styled-system/css'
+  import IconPhone from '$lib/components/icon/IconPhone.svelte'
   const sentence = 'Service de taxi sur : '
   const cities = ['Toulouse', 'Marseille', 'Aix en Provence']
 </script>
@@ -56,8 +57,40 @@
       class={css({
         width: '100%',
         height: '4rem',
-        backdropFilter: 'blur(10px)'
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center'
       })}
-    />
+    >
+      <a
+        class={css({
+          width: '4rem',
+          height: '100%',
+          display: 'grid',
+          placeItems: 'center',
+          backdropFilter: 'blur(30px)',
+          rounded: 'lg'
+        })}
+        href="tel:+33651179461"
+      >
+        <IconPhone width="2.5rem" height="2.5rem" color="white" />
+      </a>
+      <a
+        class={css({
+          height: '100%',
+          color: 'white',
+          fontSize: '2xl',
+          textTransform: 'capitalize',
+          padding: '0 2rem',
+          display: 'grid',
+          placeItems: 'center',
+          backdropFilter: 'blur(30px)',
+          rounded: 'lg'
+        })}
+        href="/reservation"
+      >
+        Réserver
+      </a>
+    </div>
   </div>
 </div>

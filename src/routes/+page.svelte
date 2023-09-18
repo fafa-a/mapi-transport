@@ -3,6 +3,7 @@
   import IconPhone from '$lib/components/icon/IconPhone.svelte'
   const sentence = 'Service de taxi sur : '
   const cities = ['Toulouse', 'Marseille', 'Aix en Provence']
+  const PHONE_NUMBER = '+3376664227'
 </script>
 
 <div
@@ -71,7 +72,7 @@
           backdropFilter: 'blur(30px)',
           rounded: 'lg'
         })}
-        href="tel:+33651179461"
+        href={`tel:${PHONE_NUMBER}`}
       >
         <IconPhone width="2.5rem" height="2.5rem" color="white" />
       </a>

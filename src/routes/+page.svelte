@@ -1,9 +1,13 @@
 <script lang="ts">
   import { css } from 'styled-system/css'
   import IconPhone from '$lib/components/icon/IconPhone.svelte'
-  const sentence = 'Service de taxi sur : '
-  const cities = ['Toulouse', 'Marseille', 'Aix en Provence']
-  const PHONE_NUMBER = '+3376664227'
+  import {
+    SENTENCE,
+    CITIES,
+    PHONE_NUMBER,
+    VTC_VEHICULES
+  } from '$lib/stores/mapi'
+  import VTCVehiculeCard from '$lib/components/VTCVehiculeCard.svelte'
 </script>
 
 <div
@@ -49,8 +53,8 @@
     })}
   >
     <h2 class={css({ color: 'white', fontSize: '3xl' })}>
-      {sentence}
-      {#each cities as city}
+      {SENTENCE}
+      {#each CITIES as city}
         <br />{city}
       {/each}
     </h2>
@@ -94,4 +98,6 @@
       </a>
     </div>
   </div>
+  {#each VTC_VEHICULES as vehicule}
+    <VTCVehiculeCard {vehicule} />{/each}
 </div>

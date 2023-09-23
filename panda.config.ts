@@ -1,4 +1,4 @@
-import { defineConfig } from '@pandacss/dev';
+import { defineConfig } from '@pandacss/dev'
 
 export default defineConfig({
   // Whether to use css reset
@@ -12,9 +12,16 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {}
+    extend: {
+      tokens: {
+        fonts: {
+          montserrat: { value: 'var(--font-montserrat), sans-serif' },
+          nunito: { value: 'var(--font-nunito), sans-serif' }
+        }
+      }
+    }
   },
 
   // The output directory for your css system
   outdir: 'styled-system'
-});
+})

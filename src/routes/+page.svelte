@@ -21,18 +21,18 @@
       width: '100vw',
       height: '100vh',
       backgroundImage:
-        "url('$lib/assets/images/arthur-chauvineau-mobile.webp')",
+        "url('$lib/assets/images/background/arthur-chauvineau-mobile.webp')",
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
       '@media (min-width: 768px)': {
         backgroundImage:
-          "url('$lib/assets/images/arthur-chauvineau-tablet.webp')"
+          "url('$lib/assets/images/background/arthur-chauvineau-tablet.webp')"
       },
 
       '@media (min-width: 1280px)': {
         backgroundImage:
-          "url('$lib/assets/images/arthur-chauvineau-desktop.webp')"
+          "url('$lib/assets/images/background/arthur-chauvineau-desktop.webp')"
       }
     },
     width: '100%',
@@ -49,7 +49,8 @@
       height: '100%',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      fontFamily: 'nunito'
     })}
   >
     <h2 class={css({ color: 'white', fontSize: '3xl' })}>
@@ -90,7 +91,8 @@
           display: 'grid',
           placeItems: 'center',
           backdropFilter: 'blur(30px)',
-          rounded: 'lg'
+          rounded: 'lg',
+          fontFamily: 'nunito'
         })}
         href="/reservation"
       >
@@ -98,6 +100,21 @@
       </a>
     </div>
   </div>
-  {#each VTC_VEHICULES as vehicule}
-    <VTCVehiculeCard {vehicule} />{/each}
+  <div class={css({ width: '90vw', mx: 'auto', marginTop: '3.5rem' })}>
+    <h2
+      class={css({
+        fontFamily: 'montserrat',
+        fontSize: '3xl',
+        textTransform: 'uppercase',
+        color: 'black',
+        py: '1.5rem',
+        textAlign: 'center'
+      })}
+    >
+      Tarifs
+    </h2>
+    {#each VTC_VEHICULES as vehicule}
+      <VTCVehiculeCard {vehicule} />
+    {/each}
+  </div>
 </div>

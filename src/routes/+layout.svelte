@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.css'
+  import '../styles/font.css'
   import { css } from 'styled-system/css'
   import IconMenuMobile from '$lib/components/icon/IconMenuMobile.svelte'
   import IconMenuMobileClose from '$lib/components/icon/IconMenuMobileClose.svelte'
@@ -25,6 +26,8 @@
   <h1
     class={css({
       fontSize: '2xl',
+      fontFamily: 'montserrat',
+      fontWeight: 600,
       textTransform: 'uppercase',
       backgroundColor: 'white',
       width: 'max-content',

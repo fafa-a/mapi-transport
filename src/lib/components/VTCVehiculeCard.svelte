@@ -3,12 +3,9 @@
   import { css } from 'styled-system/css'
   import { hstack } from '../../../styled-system/patterns'
   import IconPerson from './icon/IconPerson.svelte'
-  import useAssets, { getImageUrl } from '$lib/helpers/hooks'
   export let vehicule: VehiculeCard
   const { type, number_passager, reservation_required, price_minimum } =
     vehicule
-  const image = getImageUrl(`vehicules/${type}-mobile`)
-  console.log(image)
 </script>
 
 <div
@@ -57,7 +54,7 @@
       width: '100%',
       height: '60%',
       objectFit: 'contain',
-      transform: 'scale(1.1)'
+      transform: 'scale(1.2)'
     })}
     src={`https://res.cloudinary.com/fafa/image/upload/v1695669234/mapi/vehicules/${type}.webp`}
     alt={type}

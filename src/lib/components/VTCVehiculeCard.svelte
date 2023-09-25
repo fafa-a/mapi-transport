@@ -3,9 +3,12 @@
   import { css } from 'styled-system/css'
   import { hstack } from '../../../styled-system/patterns'
   import IconPerson from './icon/IconPerson.svelte'
+  import useAssets, { getImageUrl } from '$lib/helpers/hooks'
   export let vehicule: VehiculeCard
   const { type, number_passager, reservation_required, price_minimum } =
     vehicule
+  const image = getImageUrl(`vehicules/${type}-mobile`)
+  console.log(image)
 </script>
 
 <div
@@ -56,12 +59,7 @@
       objectFit: 'contain',
       transform: 'scale(1.1)'
     })}
-    src={`src/lib/assets/images/vehicules/${type}-mobile.webp`}
-    srcset={`
-      src/lib/assets/images/vehicules/${type}-mobile.webp 420w,
-      src/lib/assets/images/vehicules/${type}-tablet.webp 768w,
-      src/lib/assets/images/vehicules/${type}-desktop.webp 1200w
-    `}
+    src={`https://res.cloudinary.com/fafa/image/upload/v1695669234/mapi/vehicules/${type}.webp`}
     alt={type}
   />
   <div class={hstack({ justifyContent: 'space-around' })}>

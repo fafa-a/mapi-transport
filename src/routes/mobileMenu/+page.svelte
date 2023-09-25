@@ -13,7 +13,7 @@
       width: '100vw',
       height: '100vh',
       backgroundImage:
-        "url('$lib/assets/images/arthur-chauvineau-mobile.webp')",
+        "url('$lib/assets/images/background/arthur-chauvineau-mobile.webp')",
       filter: 'blur(5px)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',

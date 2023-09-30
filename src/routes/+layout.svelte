@@ -63,14 +63,28 @@
           on:click={toggleMobileMenu}
           class={css({ marginRight: '2.0rem', height: '100%' })}
         >
-          <IconMenuMobile width="2.5rem" height="100%" color="white" />
+          <IconMenuMobile
+            class={css({
+              width: '2.5rem',
+              height: '100%',
+              color: 'slate.300',
+              _hover: { color: 'slate.400' }
+            })}
+          />
         </a>
       {:else}
         <a
           href="/"
           on:click={toggleMobileMenu}
           class={css({ marginRight: '2.0rem', height: '100%' })}
-          ><IconMenuMobileClose width="2.5rem" height="100%" color="white" />
+          ><IconMenuMobileClose
+            class={css({
+              width: '2.5rem',
+              height: '100%',
+              color: 'slate.300',
+              _hover: { color: 'slate.400' }
+            })}
+          />
         </a>
       {/if}
     {/if}
@@ -95,4 +109,52 @@
     {/if}
   </MediaQuery>
 </header>
-<slot />
+<div
+  class={css({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflowX: 'hidden',
+    minHeight: 'calc(100vh - 7.5rem)'
+  })}
+>
+  <slot />
+</div>
+{#if open}{:else}
+  <footer
+    class={css({
+      width: '100vw',
+      height: '7.5rem',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'start',
+      backgroundColor: 'black',
+      py: '1rem'
+    })}
+  >
+    <ul
+      class={css({
+        display: 'flex',
+        flexDirection: 'column',
+        color: 'white'
+      })}
+    >
+      <li><a href="/services">Services</a></li>
+      <li><a href="/reservation">Réservation</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <ul
+      class={css({
+        display: 'flex',
+        flexDirection: 'column',
+        color: 'white'
+      })}
+    >
+      <li><a href="/mentions">Mentions légales</a></li>
+      <li>
+        <a href="/agreement_service">Politique de confidentialité</a>
+      </li>
+    </ul>
+  </footer>
+{/if}

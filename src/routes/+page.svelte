@@ -8,23 +8,28 @@
     VTC_VEHICULES
   } from '$lib/stores/mapi'
   import VTCVehiculeCard from '$lib/components/VTCVehiculeCard.svelte'
+  import { vstack } from 'styled-system/patterns'
 </script>
 
 <div
   class={css({
-    _before: {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      zIndex: -1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflowX: 'hidden'
+  })}
+>
+  <div
+    class={css({
       width: '100vw',
       height: '100vh',
       backgroundImage:
         "url('$lib/assets/images/background/arthur-chauvineau-mobile.webp')",
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
+      backgroundPosition: 'center',
+
       '@media (min-width: 768px)': {
         backgroundImage:
           "url('$lib/assets/images/background/arthur-chauvineau-tablet.webp')"
@@ -34,19 +39,16 @@
         backgroundImage:
           "url('$lib/assets/images/background/arthur-chauvineau-desktop.webp')"
       }
-    },
-    width: '100%',
-    height: 'calc(100vh - 3.5rem)'
-  })}
->
+    })}
+  />
   <div
     class={css({
-      position: 'relative',
+      position: 'absolute',
       top: '3.5rem',
-      paddingLeft: '1rem',
-      paddingRight: '1rem',
+      left: 0,
+      px: '1rem',
       width: '100%',
-      height: '100%',
+      height: 'calc(100vh - 3rem)',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
@@ -100,19 +102,27 @@
       </a>
     </div>
   </div>
-  <div class={css({ width: '90vw', mx: 'auto', marginTop: '3.5rem' })}>
-    <h2
-      class={css({
-        fontFamily: 'montserrat',
-        fontSize: '3xl',
-        textTransform: 'uppercase',
-        color: 'black',
-        py: '1.5rem',
-        textAlign: 'center'
-      })}
-    >
-      Tarifs
-    </h2>
+</div>
+<div class={css({ width: '90vw', mx: 'auto', marginTop: '3.5rem' })}>
+  <h2
+    class={css({
+      fontFamily: 'montserrat',
+      fontSize: '3xl',
+      textTransform: 'uppercase',
+      color: 'black',
+      py: '1.5rem',
+      textAlign: 'center'
+    })}
+  >
+    Tarifs
+  </h2>
+  <div
+    class={css({
+      display: 'flex',
+      flexDirection: 'column',
+      md: { flexDirection: 'row', gap: '1rem' }
+    })}
+  >
     {#each VTC_VEHICULES as vehicule}
       <VTCVehiculeCard {vehicule} />
     {/each}

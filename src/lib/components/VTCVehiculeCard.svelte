@@ -22,7 +22,11 @@
     rounded: 'md',
     boxShadow: '2px 2px 2px 0px rgba(0,0,0,0.75)',
     fontFamily: 'montserrat',
-    padding: '1.5rem 1.0rem'
+    padding: '1.5rem 1.0rem',
+    lg: {
+      width: '550px',
+      height: '400px'
+    }
   })}
 >
   <div class={css({ height: '3rem' })}>

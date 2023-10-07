@@ -1,6 +1,7 @@
 <script lang="ts">
   import '../app.css'
   import '../styles/font.css'
+  import { SvelteToast } from '@zerodevx/svelte-toast'
   import { css } from 'styled-system/css'
   import IconMenuMobile from '$lib/components/icon/IconMenuMobile.svelte'
   import IconMenuMobileClose from '$lib/components/icon/IconMenuMobileClose.svelte'
@@ -9,6 +10,9 @@
   let open = false
   const toggleMobileMenu = () => {
     open = !open
+  }
+  const resetMobileMenu = () => {
+    open = false
   }
 </script>
 
@@ -45,7 +49,7 @@
       }
     })}
   >
-    <a href="/">{SOCIETY_NAME}</a>
+    <a href="/" on:click={resetMobileMenu}>{SOCIETY_NAME}</a>
   </h1>
   <MediaQuery
     query={[
@@ -109,6 +113,7 @@
     {/if}
   </MediaQuery>
 </header>
+<SvelteToast />
 <div
   class={css({
     display: 'flex',

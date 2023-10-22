@@ -9,7 +9,12 @@ export default defineConfig({
 
   // Files to exclude
   exclude: [],
-
+  conditions: {
+    extend: {
+      userInvalid: ':user-invalid',
+      userValid: ':user-valid'
+    }
+  },
   // Useful for theme customization
   theme: {
     extend: {

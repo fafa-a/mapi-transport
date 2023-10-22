@@ -11,8 +11,8 @@ export const actions = {
       message,
       reply_to: email
     }
-    const serviceID = 'service_suog53n'
-    const templateID = 'template_kwoxx3i'
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const keys = {
       publicKey: 'xmD8LKwBacT7lsRi2',
       privateKey: 'qBKIBfTjQ-CKusABTuFK6'

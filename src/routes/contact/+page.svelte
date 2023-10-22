@@ -1,4 +1,5 @@
 <script>
+  export const prerender = true
   import { css } from 'styled-system/css'
   import Input from '$lib/components/Input.svelte'
   import Textarea from '$lib/components/Textarea.svelte'
@@ -22,7 +23,9 @@
 </h2>
 
 <form
+  name="contact"
   method="POST"
+  data-netlify="true"
   use:enhance={({ formElement, formData, action }) => {
     return async ({ result, update }) => {
       if (result.type === 'success') {
@@ -38,6 +41,7 @@
     gap: '1rem'
   })}
 >
+  <input type="hidden" name="form-name" value="contact" />
   <Input
     label="Nom"
     type="text"

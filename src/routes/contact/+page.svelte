@@ -14,14 +14,19 @@
   let pending = false
   const handleSubmit = async ({ target }) => {
     pending = true
-    const { name, firstname, email, message } = Object.fromEntries(
-      target.elements
-    )
+
+    const { name, firstname, email, message } = target.elements
+
+    const nameValue = name.value
+    const firstnameValue = firstname.value
+    const emailValue = email.value
+    const messageValue = message.value
+
     const templateParams = {
-      from_name: `${firstname} ${name}`,
+      from_name: `${firstnameValue} ${nameValue}`,
       to_name: 'Shirley',
-      message,
-      reply_to: email
+      message: messageValue,
+      reply_to: emailValue
     }
 
     const emailSend = await emailjs.send(

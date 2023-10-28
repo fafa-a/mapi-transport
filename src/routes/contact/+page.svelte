@@ -1,5 +1,4 @@
 <script>
-  export const prerender = true
   import { css } from 'styled-system/css'
   import Input from '$lib/components/Input.svelte'
   import Textarea from '$lib/components/Textarea.svelte'
@@ -7,6 +6,24 @@
   import { enhance } from '$app/forms'
   import { goto } from '$app/navigation'
   import { toast } from '@zerodevx/svelte-toast'
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const myForm = event.target
+    const formData = new FormData(myForm)
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        goto('/')
+        toast.push('Message envoyé !')
+      })
+      .catch((error) => alert(error))
+  }
 </script>
 
 <h2
@@ -28,12 +45,13 @@
   data-netlify="true"
   use:enhance={({ formElement, formData, action }) => {
     return async ({ result, update }) => {
-      if (result.type === 'success') {
-        goto('/')
-        toast.push('Message envoyé !')
-      }
+      // if (result.type === 'success') {
+      //   goto('/')
+      //   toast.push('Message envoyé !')
+      // }
     }
   }}
+  on:submit={handleSubmit}
   class={css({
     display: 'flex',
     flexDirection: 'column',

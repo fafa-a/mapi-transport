@@ -1,13 +1,14 @@
 <script lang="ts">
   import { css } from 'styled-system/css'
-  export let type: string
+  export let type: 'button' | 'submit' | 'reset'
   export let text: string
+  export let width: string
 </script>
 
 <button
   class={css({
     rounded: 'md',
-    width: 'max-content',
+    width: width,
     color: 'white',
     backgroundColor: 'neutral.950',
     height: '2.5rem',

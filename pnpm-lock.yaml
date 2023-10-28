@@ -5,9 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@emailjs/browser':
+    specifier: ^3.11.0
+    version: 3.11.0
   '@emailjs/nodejs':
     specifier: ^2.2.0
     version: 2.2.0
+  svelte-loading-spinners:
+    specifier: ^0.3.4
+    version: 0.3.4
   svelte-media-queries:
     specifier: ^1.6.1
     version: 1.6.1
@@ -22,9 +28,9 @@ devDependencies:
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.1.0(@sveltejs/kit@1.25.0)
-  '@sveltejs/adapter-netlify':
-    specifier: ^2.0.8
-    version: 2.0.8(@sveltejs/kit@1.25.0)
+  '@sveltejs/adapter-cloudflare':
+    specifier: ^2.3.3
+    version: 2.3.3(@sveltejs/kit@1.25.0)
   '@sveltejs/kit':
     specifier: ^1.5.0
     version: 1.25.0(svelte@3.59.2)(vite@4.4.9)
@@ -63,7 +69,7 @@ devDependencies:
     version: 3.59.2
   svelte-check:
     specifier: ^3.0.1
-    version: 3.5.1(@babel/core@7.23.0)(postcss@8.4.27)(svelte@3.59.2)
+    version: 3.5.1(@babel/core@7.23.0)(postcss@8.4.29)(svelte@3.59.2)
   svelte-preprocess-import-assets:
     specifier: ^1.0.1
     version: 1.0.1(svelte@3.59.2)
@@ -535,6 +541,15 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@cloudflare/workers-types@4.20231025.0:
+    resolution: {integrity: sha512-TkcZkntUTOcvJ4vgmwpNfLTclpMbmbClZCe62B25/VTukmyv91joRa4eKzSjzCZUXTbFHNmVdOpmGaaJU2U3+A==}
+    dev: true
+
+  /@emailjs/browser@3.11.0:
+    resolution: {integrity: sha512-RkY3FKZ3fPdK++OeF46mRTFpmmQWCHUVHZH209P3NE4D5sg2Atg7S2wa3gw5062Gl4clt4Wn5SyC4WhlVZC5pA==}
+    engines: {node: '>=14.0.0'}
+    dev: false
 
   /@emailjs/nodejs@2.2.0:
     resolution: {integrity: sha512-R5V14yCNmdQ5CrzE09BlsV/5s2DN8UcmxgBTo/Jk4T8TKxYT6s8lcEBUgfHSSvPRv/GGsNUknW7MNypgibVOpA==}
@@ -1049,10 +1064,6 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iarna/toml@2.2.5:
-    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
-    dev: true
-
   /@internationalized/date@3.5.0:
     resolution: {integrity: sha512-nw0Q+oRkizBWMioseI8+2TeUPEyopJVz5YxoYVzR0W1v+2YytiYah7s/ot35F149q/xAg4F1gT/6eTd+tsUpFQ==}
     dependencies:
@@ -1399,15 +1410,15 @@ packages:
       import-meta-resolve: 3.0.0
     dev: true
 
-  /@sveltejs/adapter-netlify@2.0.8(@sveltejs/kit@1.25.0):
-    resolution: {integrity: sha512-kfsoSsZth5CZHEIjr4TL4Cb6NmVul7/XNu5rJ04EbIOjYD1bnA4U7Sk1BmoRVyJae7UtUwG6Gkh01RFQSaIeNQ==}
+  /@sveltejs/adapter-cloudflare@2.3.3(@sveltejs/kit@1.25.0):
+    resolution: {integrity: sha512-bbcm6kq4dEluFtFJZed3KSRG4f5GUElYkVfOmnPruTqZ29nTElPJTomAu5QCp7GLkwA26O3h1Dk7+d9yLTQEXg==}
     peerDependencies:
-      '@sveltejs/kit': ^1.5.0
+      '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@iarna/toml': 2.2.5
+      '@cloudflare/workers-types': 4.20231025.0
       '@sveltejs/kit': 1.25.0(svelte@3.59.2)(vite@4.4.9)
       esbuild: 0.18.20
-      set-cookie-parser: 2.6.0
+      worktop: 0.8.0-next.15
     dev: true
 
   /@sveltejs/kit@1.25.0(svelte@3.59.2)(vite@4.4.9):
@@ -5415,6 +5426,11 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /regexparam@2.0.1:
+    resolution: {integrity: sha512-zRgSaYemnNYxUv+/5SeoHI0eJIgTL/A2pUtXUPLHQxUldagouJ9p+K6IbIZ/JiQuCEv2E2B1O11SjVQy3aMCkw==}
+    engines: {node: '>=8'}
+    dev: true
+
   /rehype-parse@8.0.5:
     resolution: {integrity: sha512-Ds3RglaY/+clEX2U2mHflt7NlMA72KspZ0JLUJgBBLpRddBcEw3H8uYZQliQriku22NZpYMfjDdSgHcjxue24A==}
     dependencies:
@@ -5949,7 +5965,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.5.1(@babel/core@7.23.0)(postcss@8.4.27)(svelte@3.59.2):
+  /svelte-check@3.5.1(@babel/core@7.23.0)(postcss@8.4.29)(svelte@3.59.2):
     resolution: {integrity: sha512-+Zb4iHxAhdUtcUg/WJPRjlS1RJalIsWAe9Mz6G1zyznSs7dDkT7VUBdXc3q7Iwg49O/VrZgyJRvOJkjuBfKjFA==}
     hasBin: true
     peerDependencies:
@@ -5962,7 +5978,7 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 3.59.2
-      svelte-preprocess: 5.0.4(@babel/core@7.23.0)(postcss@8.4.27)(svelte@3.59.2)(typescript@5.2.2)
+      svelte-preprocess: 5.0.4(@babel/core@7.23.0)(postcss@8.4.29)(svelte@3.59.2)(typescript@5.2.2)
       typescript: 5.2.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -6002,6 +6018,10 @@ packages:
       svelte: 3.59.2
     dev: true
 
+  /svelte-loading-spinners@0.3.4:
+    resolution: {integrity: sha512-vKaW71QMCBcTNijAGc0mUl8k3DQ66iYmp6MB8BMGCXyWk82bTrcLy8FOnSm9fE+8q6TwzD6PLUoYFHt0II93Xw==}
+    dev: false
+
   /svelte-media-queries@1.6.1:
     resolution: {integrity: sha512-7QwRklGnCr/HMyvk9+7idpD3L+EjRDNXo9jnB7MLaSuN8Bw+rt346/4ZOaQl8yhmiRvS7PBOPeIPWnlXAE0l7Q==}
     dev: false
@@ -6024,7 +6044,7 @@ packages:
       svelte-parse-markup: 0.1.2(svelte@3.59.2)
     dev: true
 
-  /svelte-preprocess@5.0.4(@babel/core@7.23.0)(postcss@8.4.27)(svelte@3.59.2)(typescript@5.2.2):
+  /svelte-preprocess@5.0.4(@babel/core@7.23.0)(postcss@8.4.29)(svelte@3.59.2)(typescript@5.2.2):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -6066,7 +6086,7 @@ packages:
       '@types/pug': 2.0.6
       detect-indent: 6.1.0
       magic-string: 0.27.0
-      postcss: 8.4.27
+      postcss: 8.4.29
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 3.59.2
@@ -6704,6 +6724,14 @@ packages:
       '@cloudflare/workerd-linux-64': 1.20230904.0
       '@cloudflare/workerd-linux-arm64': 1.20230904.0
       '@cloudflare/workerd-windows-64': 1.20230904.0
+    dev: true
+
+  /worktop@0.8.0-next.15:
+    resolution: {integrity: sha512-0ycNO52P6nVwsjr1y20zuf0nqJatAb8L7MODBfQIxbxndHV5O4s50oZZMHWhJG1RLpHwbK0Epq8aaQK4E2GlgQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      mrmime: 1.0.1
+      regexparam: 2.0.1
     dev: true
 
   /wrangler@3.8.0:
